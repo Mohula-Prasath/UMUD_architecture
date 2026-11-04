@@ -59,8 +59,7 @@ In human locomotion and force transmission, skeletal muscles operate as complex 
 ```
 
 ### Key Functional Relationships:
-1. **Force Generation & PCSA**: Pennation allows more muscle fibers to pack into a given volume. The Physiological Cross-Sectional Area (PCSA) determines maximum isometric force:
-   $$\text{PCSA} = \frac{m \cdot \cos(\theta_{\text{PA}})}{\rho \cdot \text{FL}}$$
+1. **Force Generation & PCSA**: Pennation allows more muscle fibers to pack into a given volume.
    where $m$ is muscle mass, $\rho$ is muscle tissue density ($1.056\text{ g/cm}^3$), $\theta_{\text{PA}}$ is Pennation Angle, and $\text{FL}$ is Fascicle Length.
 2. **Velocity & Excursion**: Fascicle Length ($\text{FL}$) determines the maximum shortening velocity ($V_{\max}$) because the number of sarcomeres arranged in series scales linearly with fascicle length.
 3. **Clinical Monitoring**:
