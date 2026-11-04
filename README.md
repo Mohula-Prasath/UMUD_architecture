@@ -14,8 +14,8 @@
 This repository provides an exhaustive, research-grade engineering implementation and algorithmic exploration for the **[Kaggle UMUD Challenge: Muscle Architecture in Ultrasound Data](https://www.kaggle.com/competitions/umud-challenge-muscle-architecture-in-ultrasound-data)**. The objective is the automated, sub-millimeter and sub-degree quantification of skeletal muscle architecture from clinical Brightness-mode (B-mode) musculoskeletal ultrasound scans.
 
 The codebase comprises **23 standalone Jupyter notebooks** spanning four distinct research tracks:
-- **Track 1: Systematic Modular & Hybrid Series (Pipelines 01–06)**: Classical CV, Dense Patch-Level MLPs, Dual-Head ResNet-34 U-Nets, Structure Tensor Hybrids, Nested U-Net++ with Tversky loss, and 4-Fold EfficientNet-B2 U-Net++ with GPU XGBoost residual regressors.
-- **Track 2: SOTA Progression Benchmark Series (Stages 1–7)**: Controlled architectural scaling from baseline U-Net++ (`1.04657`), ResNet-50 (`1.01240`), Attention U-Net (`0.97815`), DenseNet-121 (`0.94520`), EfficientNet-B4 (`0.91380`), ConvNeXt-Tiny (`0.88450`), to a 3-model heterogeneous ensemble with TTA (`0.84120`).
+- **Track 1: Systematic Modular & Hybrid Series (Pipelines 01–06)**: Classical CV, Dense Patch-Level MLPs, Dual-Head ResNet-34 U-Nets, Structure Tensor Hybrids, Nested U-Net++, and 4-Fold EfficientNet-B2 U-Net++ with GPU XGBoost residual regressors.
+- **Track 2: SOTA Progression Benchmark Series (Stages 1–7)**: Controlled architectural scaling from baseline U-Net++, ResNet-50, Attention U-Net, DenseNet-121, EfficientNet-B4, to a 3-model heterogeneous ensemble with TTA.
 - **Track 3: Standalone SOTA Champion Architecture**: Dual-task U-Net++ ResNet-34 with multi-tier calibration and polynomial aponeurosis tracking.
 - **Track 4: Empirical Kaggle Submissions & Attention Ablations (Submissions 2–11)**: Custom U-Nets from scratch, Albumentations TTA, 3-fold EfficientNet-B3 ensembles, VGG16-BN (reproducing DL_Track_US), thin-line class-weighted BCE-Dice loss, CBAM spatial/channel attention, SE-ResNet34 with concurrent spatial-channel squeeze & excitation (`scSE`), and dual-paradigm DeepLabV3 ASPP ensembles.
 
