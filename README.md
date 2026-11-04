@@ -89,7 +89,7 @@ Across the 23 notebooks, specialized loss functions address the extreme class im
 |---|---|---|
 | **Binary Cross-Entropy (BCE)** | $\mathcal{L}_{\text{BCE}} = -[y\log(\sigma(p)) + (1-y)\log(1-\sigma(p))]$ | Unweighted |
 | **Soft Dice Loss** | $\mathcal{L}_{\text{Dice}} = 1 - \frac{2\sum_k p_k y_k + \epsilon}{\sum_k p_k + \sum_k y_k + \epsilon}$ | $\epsilon = 1.0$ or $10^{-5}$ |
-| **Combined Dice-BCE** | $\mathcal{L}_{\text{Combined}} = 0.4\mathcal{L}_{\text{BCE}} + 0.6\mathcal{L}_{\text{Dice}}$ | $w_{\text{bce}} = 0.4,\ w_{\text{dice}} = 0.6$ |
+| **Combined Dice-BCE** | $\mathcal{L}_{\text{Combined}} = 0.4 \times \mathcal{L}_{\text{BCE}} + 0.6 \times \mathcal{L}_{\text{Dice}}$ | $w_{\text{bce}} = 0.4,\ w_{\text{dice}} = 0.6$ |
 
 ---
 
