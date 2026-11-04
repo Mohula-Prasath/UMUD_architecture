@@ -38,36 +38,6 @@ The codebase comprises **23 standalone Jupyter notebooks** spanning four distinc
 
 ---
 
-## 1. Musculoskeletal Biomechanics & Clinical Context
-
-In human locomotion and force transmission, skeletal muscles operate as complex mechanical actuators. The force, velocity, and power output of a muscle depend not only on its physiological mass, but crucially on the spatial arrangement of its fascicles relative to its tendon plates:
-
-```
-+----------------------------------------------------------------------------------------------------+
-|                                    SUPERFICIAL APONEUROSIS                                         |
-|  ================================================================================================  |
-|         \                                                                             ▲            |
-|          \                                                                            |            |
-|           \   Muscle Fascicle (Linear Striation)                                      |  Muscle    |
-|            \                                                                          |  Thickness |
-|             \                                                                         |  (MT, mm)  |
-|              \   Pennation Angle (PA, deg)                                            |            |
-|  =============\==================================================================================  |
-|                                       DEEP APONEUROSIS                                ▼            |
-|               |◄------------------------- Projected Base (dx) -----------------------►|            |
-+----------------------------------------------------------------------------------------------------+
-```
-
-### Key Functional Relationships:
-1. **Force Generation & PCSA**: Pennation allows more muscle fibers to pack into a given volume.
-   where $m$ is muscle mass, $\rho$ is muscle tissue density ($1.056\text{ g/cm}^3$), $\theta_{\text{PA}}$ is Pennation Angle, and $\text{FL}$ is Fascicle Length.
-2. **Velocity & Excursion**: Fascicle Length ($\text{FL}$) determines the maximum shortening velocity ($V_{\max}$) because the number of sarcomeres arranged in series scales linearly with fascicle length.
-3. **Clinical Monitoring**:
-   - **Sarcopenia**: Preferential atrophy of glycolytic fast-twitch fibers causes significant reductions in $\text{MT}$ and $\text{FL}$.
-   - **Sports Performance**: Shorter $\text{FL}$ in the biceps femoris longus is a primary predictor of hamstring strain injuries in sprinters.
-   - **Cerebral Palsy & Stroke**: Pathological spasticity alters fascicle stiffness, inducing severe contractures measurable via abnormal $\text{PA}$.
-
----
 
 ## 2. Target Morphological Parameters & Mathematical Derivations
 
