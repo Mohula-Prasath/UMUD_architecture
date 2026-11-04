@@ -93,35 +93,6 @@ Across the 23 notebooks, specialized loss functions address the extreme class im
 
 ---
 
-## 5. Taxonomy of Morphometric & Geometric Post-Processing Algorithms
-
-Once probability maps are predicted by neural networks, biomechanical parameters are extracted using one of five geometric paradigms:
-
-### Method A: Huber M-Estimator Straight Line Fitting
-Implemented via `cv2.fitLine(pts, cv2.DIST_HUBER, 0, 0.01, 0.01)`. Huber fitting minimizes an $L_1/L_2$ hybrid penalty:
-$$\rho(r) = \begin{cases} \frac{1}{2} r^2 & \text{if } |r| \le k \\ k|r| - \frac{1}{2}k^2 & \text{otherwise} \end{cases}$$
-This prevents mask spurs and boundary noise from skewing the slope $m$ and intercept $b$.
-
-### Method B: 2nd-Order Polynomial Curve Fitting (`np.polyfit(deg=2)`)
-Used in SOTA Stages 1–7 and the Standalone Champion. Models aponeuroses as parabolic arcs:
-$$y(x) = a x^2 + b x + c$$
-The orthogonal distance is computed between the fitted curves $p_{\text{sup}}(x)$ and $p_{\text{deep}}(x)$, handling physiological aponeurotic curvature.
-
-### Method C: Coherence-Weighted Structure Tensor
-Used in Pipelines 01, 02, 04, `cbam_attention_unet`, and `se_resnet34_scse_unet`. Avoids noisy fascicle mask training by computing the spatial gradient field of raw ultrasound speckle inside the muscle belly:
-$$g_x = \text{Sobel}_x(\mathbf{I}), \quad g_y = \text{Sobel}_y(\mathbf{I})$$
-$$J_{xx} = G_{\sigma_{\text{post}}} * (g_x^2), \quad J_{yy} = G_{\sigma_{\text{post}}} * (g_y^2), \quad J_{xy} = G_{\sigma_{\text{post}}} * (g_x g_y)$$
-The **anisotropy coherence** $C$ weights high-contrast linear fibers:
-$$C = \frac{\sqrt{(J_{xx} - J_{yy})^2 + 4J_{xy}^2}}{J_{xx} + J_{yy} + \epsilon}$$
-The dominant fascicle angle is extracted from the coherence-weighted gradient orientation:
-$$\theta_{\text{grad}} = \frac{1}{2} \text{atan2}(2 \overline{J}_{xy}, \overline{J}_{xx} - \overline{J}_{yy}), \quad \theta_{\text{fasc}} = \theta_{\text{grad}} + 90^\circ$$
-
-### Method D: Hough Transform Line Segment Aggregation
-Used in `thinline_weighted_resnet34_unet`. Uses `cv2.HoughLinesP` to detect individual line segments, filters out horizontal segments ($|\theta| < 3^\circ$), and computes the length-weighted average angle:
-$$\theta_{\text{fasc}} = \frac{\sum_k L_k \cdot \theta_k}{\sum_k L_k}$$
-
----
-
 ## 6. Multi-Tier Physical Scale Calibration Engine
 
 ```
