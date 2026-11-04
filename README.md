@@ -52,18 +52,10 @@ $$\Delta\theta = \theta_{\text{fasc}} - \theta_{\text{deep}}; \quad \text{while 
 *Physiological Bounds*: Naturally $8^\circ \le \mathbf{PA} \le 30^\circ$; safe numerical clipping bounds are $[2.0^\circ, 45.0^\circ]$.
 
 ### 2. Muscle Thickness ($\mathbf{MT}$, in millimeters $\text{mm}$)
-The true perpendicular distance separating the superficial aponeurosis line ($y = m_s x + b_s$) and the deep aponeurosis line ($y = m_d x + b_d$) across the common horizontal overlap $[x_{\text{lo}}, x_{\text{hi}}]$:
-$$d_{\perp}(x) = \frac{|m_d x - (m_s x + b_s) + b_d|}{\sqrt{m_d^2 + 1}}$$
-$$\mathbf{MT}_{\text{pixels}} = \frac{1}{K}\sum_{k=1}^K d_{\perp}(x_k), \quad x_k \in \text{linspace}(x_{\text{lo}}, x_{\text{hi}}, K=200)$$
-$$\mathbf{MT}_{\text{mm}} = \mathbf{MT}_{\text{pixels}} \times S_{\text{mm/px}}$$
-*Physiological Bounds*: Naturally $10\text{ mm} \le \mathbf{MT} \le 35\text{ mm}$; safe numerical clipping bounds are $[5.0\text{ mm}, 60.0\text{ mm}]$.
+We calculated muscle thickness by finding the number of pixels between bottom of Superficial Apogenesis and top of Deep Apogenesis and then multiplying by the pixel to mm ratio value.
 
 ### 3. Fascicle Length ($\mathbf{FL}$, in millimeters $\text{mm}$)
-The continuous physical length of the fascicle fiber extending from the superficial to the deep aponeurosis. In early iterations, direct ray-intersection was attempted:
-$$\mathbf{FL}_{\text{intersect}} = \sqrt{(x_{\text{int\_deep}} - x_{\text{int\_sup}})^2 + (y_{\text{int\_deep}} - y_{\text{int\_sup}})^2} \times S_{\text{mm/px}}$$
-However, when $\mathbf{PA} < 3^\circ$, the lines are nearly parallel and the denominator $m_f - m_d \rightarrow 0$, causing numerical blow-up ($\mathbf{FL} \rightarrow \infty$). To ensure strict stability, all mature pipelines enforce the **Euclidean Muscle-Triangle Formula**:
-$$\mathbf{FL} = \frac{\mathbf{MT}_{\text{mm}}}{\sin(\mathbf{PA}_{\text{rad}})} = \sqrt{\mathbf{MT}^2 + \Delta x^2}$$
-*Physiological Bounds*: Naturally $35\text{ mm} \le \mathbf{FL} \le 120\text{ mm}$; safe numerical clipping bounds are $[15.0\text{ mm}, 250.0\text{ mm}]$.
+We found the fasicle length using trignometry where it is the hypotenous which forms a triangle with deep neurogenisis and muscle thickness, since we have pennation angle we used it to find the fasicle length sin(pennation angle)= muscle thickness/fascicle length so fasicle length= muscle thickness * sin(pennation angle).
 
 ---
 
