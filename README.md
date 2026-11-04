@@ -87,15 +87,9 @@ Across the 23 notebooks, specialized loss functions address the extreme class im
 
 | Loss Function Name | Mathematical Equation | Typical Weights | Used In |
 |---|---|---|---|
-| **Binary Cross-Entropy (BCE)** | $\mathcal{L}_{\text{BCE}} = -\left[ y \log(\sigma(p)) + (1-y)\log(1-\sigma(p)) \right]$ | Unweighted | `custom_unet`, `resnet34_tta` |
-| **Class-Weighted BCE** | $\mathcal{L}_{\text{WBCE}} = -\left[ w_{\text{pos}} y \log(\sigma(p)) + (1-y)\log(1-\sigma(p)) \right]$ | $w_{\text{pos}} \in [1.5, 8.0]$ | `06_umud_hybrid_xgboost`, `thinline_weighted` |
-| **Soft Dice Loss** | $\mathcal{L}_{\text{Dice}} = 1 - \frac{2\sum p_k y_k + \epsilon}{\sum p_k + \sum y_k + \epsilon}$ | $\epsilon = 1.0$ or $10^{-5}$ | All deep learning notebooks |
-| **Combined Dice-BCE** | $\mathcal{L} = w_{\text{bce}}\mathcal{L}_{\text{BCE}} + w_{\text{dice}}\mathcal{L}_{\text{Dice}}$ | $w_{\text{bce}}=0.4, w_{\text{dice}}=0.6$ | SOTA Stages 1–7, Champion |
-| **Tversky Loss** | $\mathcal{L}_{\text{Tversky}} = 1 - \frac{\text{TP} + s}{\text{TP} + \alpha\text{FP} + \beta\text{FN} + s}$ | $\alpha=0.3, \beta=0.7$ | `05_umud_unetplusplus_tversky` |
-| **Hybrid Loss** | $\mathcal{L} = 0.6 \cdot \mathcal{L}_{\text{WBCE}}(pw=2.5) + 0.4 \cdot \mathcal{L}_{\text{Dice}}$ | $w_{\text{bce}}=0.6, pw=2.5$ | `se_resnet34_scse_unet` |
-| **Masked Multi-Task Loss** | $\mathcal{L} = \frac{1}{C}\sum_{c=1}^2 \text{flag}_c \cdot [\text{WBCE}(p_c, y_c) + \text{Dice}(p_c, y_c)]$ | $w_{\text{apo}}=1.0, w_{\text{fasc}}=5.0$ | `03_umud_resnet34_dual_head` |
-| **Multi-Scale Deep Supervision** | $\mathcal{L}_{\text{DS}} = \frac{1}{K}\sum_{k=1}^K \mathcal{L}_{\text{Seg}}(p^{(k)}, \text{resize}(y))$ | Interpolated across $K=4$ levels | `05_umud_unetplusplus_tversky` |
-| **Residual MSE Loss** | $\mathcal{L}_{\text{MSE}} = \frac{1}{N}\sum (\Delta_i - \widehat{\Delta}_i)^2$ | On target residuals | `06_umud_hybrid_xgboost` (XGBoost) |
+| **Binary Cross-Entropy (BCE)** | $\mathcal{L}_{\text{BCE}} = -\left[ y \log(\sigma(p)) + (1-y)\log(1-\sigma(p)) \right]$ | Unweighted | 
+| **Soft Dice Loss** | $\mathcal{L}_{\text{Dice}} = 1 - \frac{2\sum p_k y_k + \epsilon}{\sum p_k + \sum y_k + \epsilon}$ | $\epsilon = 1.0$ or $10^{-5}$ | 
+| **Combined Dice-BCE** | $\mathcal{L} = w_{\text{bce}}\mathcal{L}_{\text{BCE}} + w_{\text{dice}}\mathcal{L}_{\text{Dice}}$ | $w_{\text{bce}}=0.4, w_{\text{dice}}=0.6$ | 
 
 ---
 
