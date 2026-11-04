@@ -69,8 +69,7 @@ $$\text{MAE}_{\text{PA}} = \frac{1}{N}\sum_{i=1}^N |\widehat{\text{PA}}_i - \tex
 $$\mathcal{L}_{\text{Competition}} = \frac{1}{3} \left( \frac{\text{MAE}_{\text{PA}}}{\sigma_{\text{PA}}} + \frac{\text{MAE}_{\text{FL}}}{\sigma_{\text{FL}}} + \frac{\text{MAE}_{\text{MT}}}{\sigma_{\text{MT}}} \right)$$
 
 ### Validation Protocol: Proxy MAE on Paired Ground Truth
-To evaluate end-to-end models locally without competition test labels, our pipelines compute **Proxy MAE**. Ground-truth geometry ($PA_{\text{gt}}, FL_{\text{gt}}, MT_{\text{gt}}$) is extracted from paired training masks and compared against model predictions:
-$$\text{Proxy MAE} = \frac{1}{M}\sum_{j=1}^M |\text{Biometric}_{\text{pred}}^{(j)} - \text{Biometric}_{\text{gt}}^{(j)}|$$
+To evaluate end-to-end models locally without competition test labels, our pipelines compute **Proxy MAE**. Ground-truth geometry ($PA_{\text{gt}}, FL_{\text{gt}}, MT_{\text{gt}}$) is extracted from paired training masks and compared against model predictions
 
 ### The 1-Pixel Fascicle Dice Dilemma (Submission 08 Insight)
 A critical insight discovered in `geometry_stabilized_resnet34_unet.ipynb` is that while aponeurosis segmentation achieves high validation Dice ($\sim 0.83\text{--}0.86$), fascicle segmentation validation Dice plateaued at $\sim 0.28\text{--}0.30$. 
