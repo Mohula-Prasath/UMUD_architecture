@@ -39,7 +39,7 @@ The codebase comprises **23 standalone Jupyter notebooks** spanning four distinc
 ---
 
 
-## 2. Target Morphological Parameters & Mathematical Derivations
+## 1. Target Morphological Parameters & Mathematical Derivations
 
 Each ultrasound image is analyzed to predict three biomechanical parameters:
 
@@ -59,7 +59,7 @@ We found the fasicle length using trignometry where it is the hypotenous which f
 
 ---
 
-## 3. Evaluation Metrics & The 1-Pixel Fascicle Dice Dilemma
+## 2. Evaluation Metrics & The 1-Pixel Fascicle Dice Dilemma
 
 ### Official Competition Evaluation Metric
 The Kaggle competition evaluates submissions on the unseen test set ($N=309$) using normalized Mean Absolute Error (MAE):
@@ -81,7 +81,7 @@ Even though a 1-pixel shift is sub-millimeter accurate in physical space ($\sim 
 
 ---
 
-## 4. Taxonomy of Loss Functions Across All Notebooks
+## 3. Taxonomy of Loss Functions Across All Notebooks
 
 Across the 23 notebooks, specialized loss functions address the extreme class imbalance between planar aponeuroses and thin fascicle striations:
 
@@ -93,7 +93,7 @@ Across the 23 notebooks, specialized loss functions address the extreme class im
 
 ---
 
-## 6. Multi-Tier Physical Scale Calibration Engine
+## 4. Multi-Tier Physical Scale Calibration Engine
 
 ```
                        Input Ultrasound Image
@@ -129,7 +129,7 @@ S_tick = 10.0 / delta_y                      S_depth = Depth_mm / H_scan
 
 ---
 
-## 7. Comprehensive Deep-Dive: Code Analysis of All 23 Notebooks
+## 5. Comprehensive Deep-Dive: Code Analysis of All 23 Notebooks
 
 ### Track 1: Systematic Modular & Hybrid Series (Pipelines 01–06)
 
@@ -361,7 +361,7 @@ S_tick = 10.0 / delta_y                      S_depth = Depth_mm / H_scan
 
 ---
 
-## 8. Cross-Model Comparative Benchmark Matrix
+## 6. Cross-Model Comparative Benchmark Matrix
 
 | Notebook Filename | Architectural Family | Encoder Backbone | Loss Formulation | Distinctive Technical Feature | Target / Validated Score |
 |---|---|---|---|---|---|
@@ -391,9 +391,9 @@ S_tick = 10.0 / delta_y                      S_depth = Depth_mm / H_scan
 
 ---
 
-## 9. Installation & Execution Guide
+## 7. Installation & Execution Guide
 
-### 9.1 Local Virtual Environment
+### 7.1 Local Virtual Environment
 ```bash
 # 1. Clone repository
 git clone https://github.com/Mohula-Prasath/UMUD_architecture.git
@@ -408,7 +408,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 9.2 Kaggle Environment Execution
+### 7.2 Kaggle Environment Execution
 All notebooks are configured to automatically locate data across standard directory paths:
 1. Open any notebook in Kaggle Notebooks.
 2. Under **Data**, attach the competition dataset:
