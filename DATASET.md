@@ -133,3 +133,4 @@ Because ground-truth targets ($FL$, $MT$) are evaluated in millimeters, converti
 - `dataset_metadata.csv`: Table of 3,070 records detailing `image_id`, `split`, mask presence flags, resolution, and cluster groups.
 - `universal_scale_metadata_v2.csv`: Comprehensive OCR scale audit detailing tick counts, ruler spans, and extracted depths for all training images.
 - `ground_truth_pseudo_labels.csv`: Reference geometric morphometry derived from ground-truth masks for supervised validation.
+
